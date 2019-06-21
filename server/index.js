@@ -1,12 +1,14 @@
-var express = require('express');
-var bodyParser = require('body-parser');
+import apiKey from '../authentication';
+
+const express = require('express');
+const bodyParser = require('body-parser');
+
 // UNCOMMENT THE DATABASE YOU'D LIKE TO USE
 // var items = require('../database-mysql');
 // var items = require('../database-mongo');
 
-var app = express();
+const app = express();
 
-// UNCOMMENT FOR REACT
 app.use(express.static(__dirname + '/../public'));
 
 app.get('/items', function (req, res) {

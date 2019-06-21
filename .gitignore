@@ -4,3 +4,6 @@ package-lock.json
 
 # System Files
 public/bundle.js
+
+# Config
+authentication.js
