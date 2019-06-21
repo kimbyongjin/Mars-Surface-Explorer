@@ -1,7 +1,6 @@
-import apiKey from '../authentication';
-
 const express = require('express');
 const bodyParser = require('body-parser');
+const apiKey = require('../authentication');
 
 // UNCOMMENT THE DATABASE YOU'D LIKE TO USE
 // var items = require('../database-mysql');
@@ -24,4 +23,3 @@ app.get('/items', function (req, res) {
 app.listen(3000, function() {
   console.log('listening on port 3000!');
 });
-
