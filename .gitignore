@@ -1,1 +1,6 @@
+# Dependencies
 node_modules
+package-lock.json
+
+# System Files
+public/bundle.js
