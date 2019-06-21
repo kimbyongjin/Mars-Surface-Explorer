@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import $ from 'jquery';
-
 import PhotoOfTheDay from './components/PhotoOfTheDay';
+import apiKey from '../../authentication';
 
 const axios = require('axios');
 
@@ -12,25 +11,26 @@ class App extends React.Component {
     this.state = {
       potdUrl: '',
     }
-
+    this.getPOTD = this.getPOTD.bind(this);
   }
 
   getPOTD() {
-
+    axios.get(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`)
+      .then((response) => {
+        console.log(response);
+        const { url } = response.data;
+        console.log(url);
+        this.setState({
+          potdUrl: url,
+        })
+      })
+      .catch((err) => {
+        console.log(err);
+      })
   };
 
   componentDidMount() {
-    $.ajax({
-      url: '/items',
-      success: (data) => {
-        this.setState({
-          items: data
-        })
-      },
-      error: (err) => {
-        console.log('err', err);
-      }
-    });
+    this.getPOTD();
   };
 
   render () {
