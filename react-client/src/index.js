@@ -1,17 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import List from './components/List';
+
 import PhotoOfTheDay from './components/PhotoOfTheDay';
+
+const axios = require('axios');
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      photoOfTheDayUrl: '',
+      potdUrl: '',
     }
 
   }
+
+  getPOTD() {
+
+  };
 
   componentDidMount() {
     $.ajax({
@@ -25,16 +31,14 @@ class App extends React.Component {
         console.log('err', err);
       }
     });
-  }
+  };
 
   render () {
+    const { potdUrl } = this.state;
     return (
-      <div>
-        <h1>Item List</h1>
-        <List items={this.state.items}/>
-      </div>
+      <PhotoOfTheDay potdUrl={potdUrl} />
     );
   }
-}
+};
 
 ReactDOM.render(<App />, document.getElementById('app'));

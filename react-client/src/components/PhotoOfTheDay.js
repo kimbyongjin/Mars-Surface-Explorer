@@ -6,3 +6,5 @@ const PhotoOfTheDay = (props) => {
     <img className="photo-of-the-day" href={photoOfTheDayUrl}></img>
     );
 };
+
+export default PhotoOfTheDay;
