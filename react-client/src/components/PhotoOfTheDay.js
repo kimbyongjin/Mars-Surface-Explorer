@@ -1,9 +1,13 @@
 import React from 'react';
 
 const PhotoOfTheDay = (props) => {
-  const { potdUrl } = props;
+  const { potd } = props;
+  console.log(potd)
   return (
-    <img src={potdUrl} alt="photo-of-the-day" className="potd"></img>
+    <div className="potd-container">
+      {potd.explanation}
+      <img src={potd.url} alt="photo-of-the-day" className="potd"></img>
+    </div>
     );
 };
 

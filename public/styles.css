@@ -1,0 +1,28 @@
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.display-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.potd-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mars-photo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.photo-player-container {
+  border: 1px solid;
+  width: inherit;
+}
