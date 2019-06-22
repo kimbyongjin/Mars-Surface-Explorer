@@ -18,28 +18,28 @@ Once the project moves into development, the press release can be used as a touc
  -->
 
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  > Martian Explorer
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  > A portal through which anyone can explore the Martian Surface through the curious eyes of the "Curiosity" rover.
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  > Provides streamlined exploration of the martian surface by leveraging the NASA RESTful API's wealth of images, maps and scientific data. See what's on the Martian surface; navigate our nearest celestial neighbor.
 
 ## Problem ##
-  > Describe the problem your product solves.
+  > This program provides simple, interactive access to a wealth of image and scientific data about Mars.
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  > This app leverages NASA's Mars Rover image library to deliver an interactive exploration experience. Users have access to all 7 camers of the "Curiosity" rover, providing an unparalelled degree of visual control and exploration.
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  > "This app is so fun!"
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  > Select from one of several cameras to load up an image bank. Then, start exploring!
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  > "I've never seen the Martian surface like this. I feel like I'm there."
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  > Space may be a the final frontier. But, we are exploring our neighboring worlds to incredible depths. Access the wealth of information gathered on behalf of science. Explore Mars!
