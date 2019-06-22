@@ -7,3 +7,6 @@ public/bundle.js
 
 # Config
 authentication.js
+
+# Assets
+react-client/src/assets

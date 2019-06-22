@@ -12,7 +12,6 @@ class App extends React.Component {
     this.state = {
       potd: {},
       marsPhotos: [],
-      activePhoto: {},
     }
     this.getPOTD = this.getPOTD.bind(this);
   }
@@ -30,31 +29,15 @@ class App extends React.Component {
       })
   };
 
-  getNavCam() {
-    axios.get(`https://api.nasa.gov/mars-photos/api/v1/rovers/opportunity/photos?sol=1002&camera=navcam&api_key=${apiKey}`)
-      .then((response) => {
-        const { photos } = response.data;
-        const start = photos[0];
-        this.setState({
-          marsPhotos: photos,
-          activePhoto: start,
-        })
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-
   componentDidMount() {
     this.getPOTD();
-    this.getNavCam();
   };
 
   render () {
-    const { potd, marsPhotos, activePhoto } = this.state;
+    const { potd, marsPhotos } = this.state;
     return (
       <div className="display-container">
-        <PhotoPlayer className="photo-player" activePhoto={activePhoto} />
+        <PhotoPlayer className="photo-player" marsPhotos={marsPhotos}  />
         <PhotoOfTheDay potd={potd} />
         <h2 className="mars-photo-container">Explore Mars
           {
