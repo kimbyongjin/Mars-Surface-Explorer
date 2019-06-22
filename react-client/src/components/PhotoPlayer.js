@@ -17,6 +17,14 @@ class PhotoPlayer extends React.Component {
     this.cyclePhotos = this.cyclePhotos.bind(this);
   }
 
+  nextPhoto() {
+    // on click, cycle through photos and set the tartet center photo to the
+  }
+
+  previousPhoto() {
+    // on click, cycle photos through the
+  }
+
   cyclePhotos() {
     const { photos, activePhotoIdx } = this.state;
     let i = activePhotoIdx;
@@ -65,6 +73,10 @@ class PhotoPlayer extends React.Component {
     const { photos } = this.state;
     return (
       <div className="photo-player">
+        <div className="btn-container">
+          <button className="btn-previous">Prev</button>
+          <button className="btn-next">Next</button>
+        </div>
         <div className="photo-player-wrapper">
           {
             photos.map((photo) => <MarsPhoto key={id} photo={photo} />)

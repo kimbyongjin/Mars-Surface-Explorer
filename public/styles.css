@@ -18,23 +18,24 @@ body {
 
 .photo-player-wrapper {
   display: flex;
-  position: absolute;
+  /* position: absolute; */
 
 }
 
 .mars-photo {
   flex: 1;
   min-width: 500px;
-  transition: display 2s;
 }
-
-.mars-photo:hover {
-  width: 700px;
-}
-
 
 .photo-player {
+  display: flex;
+  flex-direction: column;
   position: relative;
   max-width: 500px;
   margin: 0 auto;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
 }
