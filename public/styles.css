@@ -1,12 +1,7 @@
 body {
   background-color: rgb(6, 12, 12);
   color: #2d5d13;
-}
-
-#app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  /* overflow-x: hidden; */
 }
 
 .display-container {
@@ -21,13 +16,25 @@ body {
   align-items: center;
 }
 
-.mars-photo-container {
+.photo-player-wrapper {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: absolute;
+
 }
 
-.photo-player-container {
-  border: 1px solid;
-  width: inherit;
+.mars-photo {
+  flex: 1;
+  min-width: 500px;
+  transition: display 2s;
+}
+
+.mars-photo:hover {
+  width: 700px;
+}
+
+
+.photo-player {
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto;
 }

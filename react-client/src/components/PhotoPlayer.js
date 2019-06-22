@@ -1,4 +1,5 @@
 import React from 'react';
+import MarsPhoto from './MarsPhoto';
 import apiKey from '../authentication';
 
 const axios = require('axios');
@@ -48,7 +49,7 @@ class PhotoPlayer extends React.Component {
         console.log(err);
       })
       .then(() => {
-        this.cyclePhotos();
+        // this.cyclePhotos();
       })
       .catch((err) => {
         console.log(err);
@@ -60,10 +61,15 @@ class PhotoPlayer extends React.Component {
   }
 
   render() {
-    const { camera, earth_date, img_src, rover } = this.state.photo;
+    const { camera, earth_date, id, img_src, rover } = this.state.photo;
+    const { photos } = this.state;
     return (
-      <div className="photo-player-container">
-        <img className="active-photo" src={img_src}/>
+      <div className="photo-player">
+        <div className="photo-player-wrapper">
+          {
+            photos.map((photo) => <MarsPhoto key={id} photo={photo} />)
+          }
+        </div>
       </div>
     );
   }

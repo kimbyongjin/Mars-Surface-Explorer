@@ -11,7 +11,6 @@ class App extends React.Component {
     super();
     this.state = {
       potd: {},
-      marsPhotos: [],
     }
     this.getPOTD = this.getPOTD.bind(this);
   }
@@ -37,13 +36,10 @@ class App extends React.Component {
     const { potd, marsPhotos } = this.state;
     return (
       <div className="display-container">
+        <h2>Explore Mars</h2>
         <PhotoPlayer className="photo-player" marsPhotos={marsPhotos}  />
+        <h2>NASA Photo of the Day</h2>
         <PhotoOfTheDay potd={potd} />
-        <h2 className="mars-photo-container">Explore Mars
-          {
-            marsPhotos.map((photo, i) => <MarsPhoto photo={photo} key={i} />)
-          }
-        </h2>
       </div>
     );
   }
