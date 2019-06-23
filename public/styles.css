@@ -16,22 +16,20 @@ body {
   align-items: center;
 }
 
-.photo-player-wrapper {
-  display: flex;
-  /* position: absolute; */
-
+.mars-photo-container {
+  position: relative;
 }
 
 .mars-photo {
-  flex: 1;
-  min-width: 500px;
+  position: absolute;
+  /* min-width: 500px; */
+  /* top: 0;
+  left: -200px; */
 }
 
 .photo-player {
   display: flex;
   flex-direction: column;
-  position: relative;
-  max-width: 500px;
   margin: 0 auto;
 }
 
@@ -39,3 +37,4 @@ body {
   display: flex;
   justify-content: center;
 }
+

@@ -7,40 +7,31 @@ const axios = require('axios');
 class PhotoPlayer extends React.Component {
   constructor(props) {
     super(props);
-    const { photos } = this.props;
+
     this.state = {
       photos: [],
-      photo: {},
-      activePhotoIdx: 0,
+      isPhotoVisible: false,
     }
     this.getNavCam = this.getNavCam.bind(this);
     this.cyclePhotos = this.cyclePhotos.bind(this);
   }
 
-  nextPhoto() {
-    // on click, cycle through photos and set the tartet center photo to the
-  }
-
-  previousPhoto() {
-    // on click, cycle photos through the
-  }
-
   cyclePhotos() {
-    const { photos, activePhotoIdx } = this.state;
+    const { photos, activePhotoIdx, photo } = this.state;
     let i = activePhotoIdx;
     i += 1;
     this.setState({
       photo: photos[i],
       activePhotoIdx: i,
-    });
-    if (i >= photos.length - 1) {
+    })
+    if (i >= photos.length + 1) {
       this.setState({
         activePhotoIdx: 0,
       });
     }
     setTimeout(
       this.cyclePhotos,
-      1000
+      2000
     )
   }
 
@@ -50,6 +41,7 @@ class PhotoPlayer extends React.Component {
         const { photos } = response.data;
         this.setState({
           photos: photos,
+          photo: photos[0],
           activePhotoIdx: 0,
         })
       })
@@ -57,10 +49,7 @@ class PhotoPlayer extends React.Component {
         console.log(err);
       })
       .then(() => {
-        // this.cyclePhotos();
-      })
-      .catch((err) => {
-        console.log(err);
+        this.cyclePhotos();
       })
   }
 
@@ -69,21 +58,23 @@ class PhotoPlayer extends React.Component {
   }
 
   render() {
-    const { camera, earth_date, id, img_src, rover } = this.state.photo;
-    const { photos } = this.state;
-    return (
-      <div className="photo-player">
+    const { photos, photo } = this.state;
+    if (photos.length) {
+      return (
+        <div className="photo-player">
         <div className="btn-container">
           <button className="btn-previous">Prev</button>
           <button className="btn-next">Next</button>
         </div>
-        <div className="photo-player-wrapper">
+        <div className="mars-photo-container">
           {
-            photos.map((photo) => <MarsPhoto key={id} photo={photo} />)
+            photos.map((photo) => <MarsPhoto key={photo.id} photo={photo} />)
           }
         </div>
       </div>
-    );
+      );
+    }
+    return null;
   }
 };
 

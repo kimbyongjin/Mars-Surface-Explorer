@@ -9,6 +9,7 @@ const axios = require('axios');
 class App extends React.Component {
   constructor() {
     super();
+
     this.state = {
       potd: {},
     }
