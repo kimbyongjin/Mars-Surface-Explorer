@@ -58,7 +58,7 @@ class PhotoPlayer extends React.Component {
   }
 
   render() {
-    const { photos, photo } = this.state;
+    const { photos, activePhotoIdx } = this.state;
     if (photos.length) {
       return (
         <div className="photo-player">
@@ -68,7 +68,7 @@ class PhotoPlayer extends React.Component {
         </div>
         <div className="mars-photo-container">
           {
-            photos.map((photo) => <MarsPhoto key={photo.id} photo={photo} />)
+            photos.map((photo) => <MarsPhoto key={photo.id} photo={photo} activePhotoIdx={activePhotoIdx} />)
           }
         </div>
       </div>
