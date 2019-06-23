@@ -22,7 +22,7 @@ body {
 
 .mars-photo {
   position: absolute;
-  /* min-width: 500px; */
+  min-width: 500px;
   /* top: 0;
   left: -200px; */
 }
