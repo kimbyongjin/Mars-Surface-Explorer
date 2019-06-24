@@ -1,11 +1,12 @@
 import React from 'react';
 
-const RoverSelectionForm = () => {
+const RoverSelectionForm = (props) => {
+  const { handleChange } = props;
   return (
     <form className="rover-form">
       <label>
         Select a Mars Rover
-        <select>
+        <select onChange={(e) => handleChange(e, 'rover')}>
           <option value="curiousity">Curiousity</option>
           <option value="opportunity">Opportunity</option>
           <option value="spirit">Spirit</option>
@@ -13,7 +14,7 @@ const RoverSelectionForm = () => {
       </label>
       <label>
         Select a Camera
-        <select>
+        <select onChange={(e) => handleChange(e, 'camera')}>
           <option value="fhaz">Front Hazard Avoidance Camera</option>
           <option value="rhaz">Rear Hazard Avoidance Camera</option>
           <option value="mast">Mast Camera</option>
@@ -27,7 +28,7 @@ const RoverSelectionForm = () => {
       </label>
       <label>
         SOL - Mars Day
-        <input type="text" />
+        <input type="text" onChange={(e) => handleChange(e, 'sol')}/>
       </label>
     </form>
   )
