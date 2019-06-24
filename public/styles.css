@@ -1,0 +1,102 @@
+body {
+  background-color: rgb(6, 12, 12);
+  color: #2d5d13;
+  /* overflow-x: hidden; */
+}
+
+.display-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.potd-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mars-photo-container {
+  display: flex;
+}
+
+.mars-photo {
+  width: 700px;
+  height: 700px;
+}
+
+.photo-player {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+.rover-form {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin-top: 9px;
+}
+
+.rover-input {
+  margin: 9px;
+}
+
+.btn-explore {
+  margin: 9px;
+  width: 250px;
+  height: 80px;
+  font-size: 35px;
+  background-color: #2d5d13;
+  color: white;
+}
+
+select {
+  width: 200px;
+  height: 30px;
+  font-size: 20px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 35px;
+}
+
+form {
+  margin-bottom: 200px;
+}
+
+input {
+  height: 40px;
+  font-size: 30px;
+}
+
+/* TODO: complete smooth transition of photo stream
+.top {
+  animation-name: fade;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+  animation-direction: alternate;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+} */
