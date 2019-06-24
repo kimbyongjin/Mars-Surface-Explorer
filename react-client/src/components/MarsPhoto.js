@@ -7,7 +7,7 @@ const MarsPhoto = (props) => {
     <img src={img_src} alt={
       `An image from the ${rover.name} rover ${camera.full_name}, earth date ${earth_date}`
       }
-      className={`mars-photo ${/* TODO: Implement display toggle classname logic */}`} />
+      className='mars-photo' />
   )
 };
 

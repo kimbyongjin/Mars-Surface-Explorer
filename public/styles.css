@@ -17,14 +17,12 @@ body {
 }
 
 .mars-photo-container {
-  position: relative;
+  display: flex;
+  max-width: 500px;
 }
 
 .mars-photo {
-  position: absolute;
   min-width: 500px;
-  /* top: 0;
-  left: -200px; */
 }
 
 .photo-player {
@@ -38,3 +36,27 @@ body {
   justify-content: center;
 }
 
+
+/* TODO: complete smooth transition of photo stream
+.top {
+  animation-name: fade;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+  animation-direction: alternate;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+} */

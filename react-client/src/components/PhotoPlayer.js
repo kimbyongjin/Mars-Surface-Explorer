@@ -1,6 +1,7 @@
 import React from 'react';
 import MarsPhoto from './MarsPhoto';
 import apiKey from '../authentication';
+import RoverSelectionForm from './RoverSelectionForm';
 
 const axios = require('axios');
 
@@ -10,7 +11,13 @@ class PhotoPlayer extends React.Component {
 
     this.state = {
       photos: [],
-      isPhotoVisible: false,
+      photo: {},
+      activePhotoIdx: 0,
+      photoSet: {
+        rover: 'opportunity',
+        camera: 'navcam',
+        sol: '1002',
+      },
     }
     this.getNavCam = this.getNavCam.bind(this);
     this.cyclePhotos = this.cyclePhotos.bind(this);
@@ -36,7 +43,8 @@ class PhotoPlayer extends React.Component {
   }
 
   getNavCam() {
-    axios.get(`https://api.nasa.gov/mars-photos/api/v1/rovers/opportunity/photos?sol=1002&camera=navcam&api_key=${apiKey}`)
+    const { rover, camera, sol } = this.state.photoSet;
+    axios.get(`https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}&camera=${camera}&api_key=${apiKey}`)
       .then((response) => {
         const { photos } = response.data;
         this.setState({
@@ -58,7 +66,7 @@ class PhotoPlayer extends React.Component {
   }
 
   render() {
-    const { photos, activePhotoIdx } = this.state;
+    const { photos, activePhotoIdx, photo } = this.state;
     if (photos.length) {
       return (
         <div className="photo-player">
@@ -67,9 +75,7 @@ class PhotoPlayer extends React.Component {
           <button className="btn-next">Next</button>
         </div>
         <div className="mars-photo-container">
-          {
-            photos.map((photo) => <MarsPhoto key={photo.id} photo={photo} activePhotoIdx={activePhotoIdx} />)
-          }
+          <MarsPhoto key={photo.id} photo={photo} activePhotoIdx={activePhotoIdx} />
         </div>
       </div>
       );
