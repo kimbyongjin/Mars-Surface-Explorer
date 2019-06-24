@@ -21,6 +21,41 @@ class App extends React.Component {
     }
     this.getPOTD = this.getPOTD.bind(this);
     this.toggleMarsPhotos = this.toggleMarsPhotos.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e, option) {
+    let { rover, camera, sol } = this.state.photoSet;
+    const { value } = e.target;
+    if (option === 'rover') {
+      this.setState({
+        photoSet: {
+          rover: value,
+          camera: camera,
+          sol: sol,
+        }
+      })
+    }
+    if (option === 'camera') {
+      this.setState({
+        photoSet: {
+          rover: rover,
+          camera: value,
+          sol: sol,
+        }
+      })
+    }
+    if (option === 'sol') {
+      this.setState({
+        photoSet: {
+          rover:rover,
+          camera: camera,
+          sol: value,
+        }
+      })
+    }
+    console.log(value);
+    console.log(e);
   }
 
   getPOTD() {
@@ -57,7 +92,7 @@ class App extends React.Component {
           <div className="btn-container">
             <button className="btn-explore" onClick={this.toggleMarsPhotos}>Explore Mars</button>
           </div>
-          <RoverSelectionForm />
+          <RoverSelectionForm handleChange={this.handleChange} />
         </div>
       );
     }
