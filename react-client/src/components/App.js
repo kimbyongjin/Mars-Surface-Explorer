@@ -1,7 +1,6 @@
 import React from 'react';
 import apiKey from '../authentication';
-import PhotoOfTheDay from './PhotoOfTheDay';
-import MarsPhoto from './MarsPhoto';
+import PhotoOfTheDay from './PhotoOfTheDay'
 import PhotoPlayer from './PhotoPlayer';
 
 const axios = require('axios');
@@ -12,8 +11,10 @@ class App extends React.Component {
 
     this.state = {
       potd: {},
+      marsPhotos: false,
     }
     this.getPOTD = this.getPOTD.bind(this);
+    this.toggleMarsPhotos = this.toggleMarsPhotos.bind(this);
   }
 
   getPOTD() {
@@ -29,18 +30,32 @@ class App extends React.Component {
       })
   };
 
+  toggleMarsPhotos() {
+    let { marsPhotos } = this.state;
+    this.setState({
+      marsPhotos: !marsPhotos,
+    });
+  }
+
   componentDidMount() {
     this.getPOTD();
   };
 
   render () {
-    const { potd, marsPhotos } = this.state;
+    const { potd, marsPhotos, toggleMarsPhotos } = this.state;
+    if (!marsPhotos) {
+      return (
+        <div className="display-container">
+          <h2>NASA Photo of the Day</h2>
+          <PhotoOfTheDay potd={potd} />
+          <PhotoPlayer className="photo-player" marsPhotos={marsPhotos} toggleMarsPhotos={toggleMarsPhotos} />
+        </div>
+      );
+    }
     return (
       <div className="display-container">
         <h2>Explore Mars</h2>
-        <PhotoPlayer className="photo-player" marsPhotos={marsPhotos}  />
-        <h2>NASA Photo of the Day</h2>
-        <PhotoOfTheDay potd={potd} />
+        <PhotoPlayer className="photo-player" marsPhotos={marsPhotos} toggleMarsPhotos={toggleMarsPhotos} />
       </div>
     );
   }
