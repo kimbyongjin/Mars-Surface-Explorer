@@ -1,62 +1,70 @@
 import React from 'react';
-import PhotoOfTheDay from './PhotoOfTheDay';
 import apiKey from '../authentication';
-import MarsPhoto from './MarsPhoto';
+import PhotoOfTheDay from './PhotoOfTheDay'
+import PhotoPlayer from './PhotoPlayer';
+import RoverSelectionForm from './RoverSelectionForm';
 
 const axios = require('axios');
 
 class App extends React.Component {
   constructor() {
     super();
+
     this.state = {
-      potdUrl: '',
-      mastPhotos: [],
+      potd: {},
+      marsPhotos: false,
+      photoSet: {
+        rover: 'curiosity', // default opportunity - curiosity
+        camera: 'rhaz', // default navcam - mast
+        sol: '1220', // default 1002 - 1001
+      },
     }
     this.getPOTD = this.getPOTD.bind(this);
+    this.toggleMarsPhotos = this.toggleMarsPhotos.bind(this);
   }
 
   getPOTD() {
     axios.get(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`)
       .then((response) => {
-        const { url } = response.data;
+        const { data } = response;
         this.setState({
-          potdUrl: url,
+          potd: data,
         })
       })
       .catch((err) => {
         console.log(err);
       })
-      .then(
-        axios.get(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=1&camera=mast&api_key=${apiKey}`)
-        .then((response) => {
-          console.log(response.data)
-          const { photos } = response.data;
-          this.setState({
-            mastPhotos: photos,
-          })
-        })
-        )
-        .catch((err) => {
-        console.log(err);
-      });
   };
+
+  toggleMarsPhotos() {
+    let { marsPhotos } = this.state;
+    this.setState({
+      marsPhotos: !marsPhotos,
+    });
+  }
 
   componentDidMount() {
     this.getPOTD();
   };
 
   render () {
-    const { potdUrl, mastPhotos } = this.state;
+    const { potd, marsPhotos, photoSet } = this.state;
+    if (!marsPhotos) {
+      return (
+        <div className="display-container">
+          <h1>NASA Photo of the Day</h1>
+          <PhotoOfTheDay potd={potd} />
+          <div className="btn-container">
+            <button className="btn-explore" onClick={this.toggleMarsPhotos}>Explore Mars</button>
+          </div>
+          <RoverSelectionForm />
+        </div>
+      );
+    }
     return (
       <div className="display-container">
-        <h2 className="potd-container">NASA Photo of the Day
-          <PhotoOfTheDay potdUrl={potdUrl} />
-        </h2>
-        <h2 className="mars-photo-container">Explore Mars
-          {mastPhotos.map((photo, i) => {
-            return <MarsPhoto photo={photo} key={i} />
-          })}
-        </h2>
+        <h1>Explore Mars</h1>
+        <PhotoPlayer className="photo-player" marsPhotos={marsPhotos} photoSet={photoSet} />
       </div>
     );
   }

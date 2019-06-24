@@ -1,5 +1,5 @@
 # Project Name #
-  > Star Explorer!
+  > Martian Explorer
 
 <!--
 > This material was originally posted [here](http://www.quora.com/What-is-Amazons-approach-to-product-development-and-product-management). It is reproduced here for posterities sake.
@@ -43,3 +43,10 @@ Once the project moves into development, the press release can be used as a touc
 
 ## Closing and Call to Action ##
   > Space may be a the final frontier. But, we are exploring our neighboring worlds to incredible depths. Access the wealth of information gathered on behalf of science. Explore Mars!
+
+
+## Notes
+
+In creating a photo transition / animation window, I need a way to ensure I'm loading up the correct photo. I can control the displayed photo by leveraging the index of the photo that is currently displayed at the time. I could do this by adding buttons to the component, in order to cycle the photos, but I woldrather make this a timed function that can operate without any user input to the app.
+
+Might jump into button implementation to try and ensure total functionality, then refactor to use a timed approach.
