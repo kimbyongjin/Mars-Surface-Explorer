@@ -18,11 +18,11 @@ body {
 
 .mars-photo-container {
   display: flex;
-  max-width: 500px;
 }
 
 .mars-photo {
-  min-width: 500px;
+  width: 700px;
+  height: 700px;
 }
 
 .photo-player {
@@ -36,6 +36,46 @@ body {
   justify-content: center;
 }
 
+.rover-form {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin-top: 9px;
+}
+
+.rover-input {
+  margin: 9px;
+}
+
+.btn-explore {
+  margin: 9px;
+  width: 250px;
+  height: 80px;
+  font-size: 35px;
+  background-color: #2d5d13;
+  color: white;
+}
+
+select {
+  width: 200px;
+  height: 30px;
+  font-size: 20px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 35px;
+}
+
+form {
+  margin-bottom: 30px;
+}
+
+input {
+  height: 40px;
+  font-size: 30px;
+}
 
 /* TODO: complete smooth transition of photo stream
 .top {

@@ -2,6 +2,7 @@ import React from 'react';
 import apiKey from '../authentication';
 import PhotoOfTheDay from './PhotoOfTheDay'
 import PhotoPlayer from './PhotoPlayer';
+import RoverSelectionForm from './RoverSelectionForm';
 
 const axios = require('axios');
 
@@ -12,6 +13,11 @@ class App extends React.Component {
     this.state = {
       potd: {},
       marsPhotos: false,
+      photoSet: {
+        rover: 'opportunity', // default opportunity
+        camera: 'navcam', // default navcam
+        sol: '1002', // default 1002
+      },
     }
     this.getPOTD = this.getPOTD.bind(this);
     this.toggleMarsPhotos = this.toggleMarsPhotos.bind(this);
@@ -42,20 +48,23 @@ class App extends React.Component {
   };
 
   render () {
-    const { potd, marsPhotos, toggleMarsPhotos } = this.state;
+    const { potd, marsPhotos, photoSet } = this.state;
     if (!marsPhotos) {
       return (
         <div className="display-container">
-          <h2>NASA Photo of the Day</h2>
+          <h1>NASA Photo of the Day</h1>
           <PhotoOfTheDay potd={potd} />
-          <PhotoPlayer className="photo-player" marsPhotos={marsPhotos} toggleMarsPhotos={toggleMarsPhotos} />
+          <div className="btn-container">
+            <button className="btn-explore" onClick={this.toggleMarsPhotos}>Explore Mars</button>
+          </div>
+          <RoverSelectionForm />
         </div>
       );
     }
     return (
       <div className="display-container">
-        <h2>Explore Mars</h2>
-        <PhotoPlayer className="photo-player" marsPhotos={marsPhotos} toggleMarsPhotos={toggleMarsPhotos} />
+        <h1>Explore Mars</h1>
+        <PhotoPlayer className="photo-player" marsPhotos={marsPhotos} photoSet={photoSet} />
       </div>
     );
   }
