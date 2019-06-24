@@ -26,7 +26,7 @@ const RoverSelectionForm = () => {
         </select>
       </label>
       <label>
-        Earth Date
+        SOL - Mars Day
         <input type="text" />
       </label>
     </form>
