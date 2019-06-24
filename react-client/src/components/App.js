@@ -14,9 +14,9 @@ class App extends React.Component {
       potd: {},
       marsPhotos: false,
       photoSet: {
-        rover: 'opportunity', // default opportunity
-        camera: 'navcam', // default navcam
-        sol: '1002', // default 1002
+        rover: 'curiosity', // default opportunity - curiosity
+        camera: 'rhaz', // default navcam - mast
+        sol: '1220', // default 1002 - 1001
       },
     }
     this.getPOTD = this.getPOTD.bind(this);
