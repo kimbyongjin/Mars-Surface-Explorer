@@ -14,13 +14,46 @@ class App extends React.Component {
       potd: {},
       marsPhotos: false,
       photoSet: {
-        rover: 'curiosity', // default opportunity - curiosity
-        camera: 'rhaz', // default navcam - mast
-        sol: '1220', // default 1002 - 1001
+        rover: 'curiosity', // default curiosity - opportunity
+        camera: 'navcam', // default navcam - navcam
+        sol: '1000', // default 1000 - 1002
       },
     }
     this.getPOTD = this.getPOTD.bind(this);
     this.toggleMarsPhotos = this.toggleMarsPhotos.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e, option) {
+    let { rover, camera, sol } = this.state.photoSet;
+    const { value } = e.target;
+    if (option === 'rover') {
+      this.setState({
+        photoSet: {
+          rover: value,
+          camera: camera,
+          sol: sol,
+        }
+      })
+    }
+    if (option === 'camera') {
+      this.setState({
+        photoSet: {
+          rover: rover,
+          camera: value,
+          sol: sol,
+        }
+      })
+    }
+    if (option === 'sol') {
+      this.setState({
+        photoSet: {
+          rover:rover,
+          camera: camera,
+          sol: value,
+        }
+      })
+    }
   }
 
   getPOTD() {
@@ -38,9 +71,12 @@ class App extends React.Component {
 
   toggleMarsPhotos() {
     let { marsPhotos } = this.state;
-    this.setState({
-      marsPhotos: !marsPhotos,
-    });
+    if (!marsPhotos) {
+      console.log('toggle')
+      this.setState({
+        marsPhotos: !marsPhotos,
+      });
+    }
   }
 
   componentDidMount() {
@@ -52,12 +88,12 @@ class App extends React.Component {
     if (!marsPhotos) {
       return (
         <div className="display-container">
-          <h1>NASA Photo of the Day</h1>
-          <PhotoOfTheDay potd={potd} />
           <div className="btn-container">
             <button className="btn-explore" onClick={this.toggleMarsPhotos}>Explore Mars</button>
           </div>
-          <RoverSelectionForm />
+          <RoverSelectionForm handleChange={this.handleChange} />
+          <h1>NASA Photo of the Day</h1>
+          <PhotoOfTheDay potd={potd} />
         </div>
       );
     }
@@ -65,6 +101,10 @@ class App extends React.Component {
       <div className="display-container">
         <h1>Explore Mars</h1>
         <PhotoPlayer className="photo-player" marsPhotos={marsPhotos} photoSet={photoSet} />
+        <div className="btn-container">
+          <button className="btn-explore" onClick={this.toggleMarsPhotos}>Explore Mars</button>
+        </div>
+        <RoverSelectionForm handleChange={this.handleChange} />
       </div>
     );
   }
