@@ -1,14 +1,22 @@
 {
   "name": "martian-explorer",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Mars Rover photo exploration app. Provides easy access to search Mars Rover photos.",
   "main": "index.js",
-  "scripts": {
-    "react-dev": "webpack -d --watch",
-    "server-dev": "nodemon server/index.js"
-  },
   "author": "Daniel Kim",
   "license": "ISC",
+  "scripts": {
+    "test": "echo \"ERROR: TODO: Complete Testing Implementation\" && exit 1",
+    "build-dev": "webpack -d --watch",
+    "build-prod": "webpack -p",
+    "server-dev": "nodemon server/index.js",
+    "start": "node server/index.js"
+  },
+  "husky" : {
+    "hooks" : {
+      "pre-commit" : "npm test"
+    }
+  },
   "devDependencies": {
     "babel-core": "^6.23.1",
     "babel-loader": "^6.3.2",
@@ -19,6 +27,7 @@
     "eslint-plugin-import": "^2.17.3",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.13.0",
+    "husky": "^2.7.0",
     "webpack": "^2.2.1"
   },
   "dependencies": {
