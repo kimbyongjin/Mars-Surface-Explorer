@@ -6,15 +6,15 @@
   "author": "Daniel Kim",
   "license": "ISC",
   "scripts": {
-    "test": "echo \"ERROR: TODO: Complete Testing Implementation\" && exit 1",
+    "test": "jest",
     "build-dev": "webpack -d --watch",
     "build-prod": "webpack -p",
     "server-dev": "nodemon server/index.js",
     "start": "node server/index.js"
   },
-  "husky" : {
-    "hooks" : {
-      "pre-commit" : "npm test"
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test"
     }
   },
   "devDependencies": {
@@ -28,6 +28,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.13.0",
     "husky": "^2.7.0",
+    "jest": "^24.8.0",
     "webpack": "^2.2.1"
   },
   "dependencies": {
