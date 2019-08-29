@@ -4,9 +4,6 @@ const path = require('path');
 const cors = require('cors');
 const items = require('../database-mongo');
 
-// UNCOMMENT THE DATABASE YOU'D LIKE TO USE
-// var items = require('../database-mysql');
-
 const app = express();
 
 app.use(express.static(path.join(__dirname, '/../public')));
