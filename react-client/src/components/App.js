@@ -72,7 +72,6 @@ class App extends React.Component {
   toggleMarsPhotos() {
     let { marsPhotos } = this.state;
     if (!marsPhotos) {
-      console.log('toggle')
       this.setState({
         marsPhotos: !marsPhotos,
       });
