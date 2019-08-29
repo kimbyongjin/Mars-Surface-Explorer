@@ -29,4 +29,6 @@ const selectAll = (callback) => {
   });
 };
 
+// TODO: build out feature allowing users to save noteworthy photo queries
+
 module.exports.selectAll = selectAll;
