@@ -16,6 +16,11 @@ body {
   align-items: center;
 }
 
+p.potd-container {
+  font-size: 24px;
+  width: 1200px;
+}
+
 .mars-photo-container {
   display: flex;
 }
