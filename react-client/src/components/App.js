@@ -16,7 +16,7 @@ class App extends React.Component {
       photoSet: {
         rover: 'curiosity', // default curiosity - opportunity
         camera: 'navcam', // default navcam - navcam
-        sol: '1000', // default 1000 - 1002
+        sol: '555', // default 1000 - 1002
       },
     }
     this.getPOTD = this.getPOTD.bind(this);

@@ -28,7 +28,7 @@ const RoverSelectionForm = (props) => {
       </label>
       <label>
         SOL - Mars Day (ex. number from 1 - 1000)
-        <input type="text" onChange={(e) => handleChange(e, 'sol')}/>
+        <input type="text" defaultValue="555" onChange={(e) => handleChange(e, 'sol')}/>
       </label>
     </form>
   )
