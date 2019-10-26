@@ -31,6 +31,8 @@ If you would like to apply for your own API credential, do so [here](https://api
 Developer key rate limits:
 - Hourly Limit: 1,000 requests per hour
 
+> All rate limits are calcualted on a rolling basis.
+
 Feel free to test out this application with the supplied ```'DEMO_KEY'```. Just take note of the rate limits. And, if you notice that you're exceeding your query allotment, I recommend applying for a developer key.
 
 To enable your own authentication key, replace ```'DEMO_KEY'``` in the export statement of ```authentiication.js``` with your own authentication key. Ensure sure that you're exporting the key as a string value. And, double check that you are properly safeguarding your credential.
