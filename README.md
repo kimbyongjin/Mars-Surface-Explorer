@@ -12,7 +12,9 @@ Select a rover, camera, and Martian date then click the "Explore Mars" button.
 
 - You will need an installation of Node.js on your machine. You can check out [this cool blog](https://www.taniarascia.com/how-to-install-and-use-node-js-and-npm-mac-and-windows/) or the [official Node.js site](https://nodejs.org/en/) to install the latest LTS (Long Term Support) build.
 
-- Start with a new terminal window in the root directory, run the following scripts:
+- After installing node, make sure to restart terminal.
+
+- Starting with a new terminal window in this repo's root directory, run the following scripts~
 
 - To install dependencies:
 ```npm install```
