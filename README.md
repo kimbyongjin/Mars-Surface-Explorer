@@ -10,7 +10,7 @@ Select a rover, camera, and Martian date then click the "Explore Mars" button.
 
 ## Instructions to run locally:
 
-- IMPORTANT: To run this application, you must enable API authentication. To do so, closely follow the instructions in the file ```EDIT-THIS-FILE-authentication.js```
+- IMPORTANT: To run this application, you must enable API authentication. To do so, closely follow the instructions in the file ```react-client/src/EDIT-THIS-FILE-authentication.js```
 
 - You will have to change the file name to ```authentication.js```. Applying for your own unique API key is optional and free. But, feel free to test out the application with the supplied ```'DEMO_KEY'```. Just take note of the demo rate limits.
 
