@@ -7,7 +7,7 @@ const RoverSelectionForm = (props) => {
       <label>
         Select a Mars Rover
         <select onChange={(e) => handleChange(e, 'rover')}>
-          <option value="curiousity">Curiousity</option>
+          <option value="curiosity">Curiosity</option>
           <option value="opportunity">Opportunity</option>
           <option value="spirit">Spirit</option>
         </select>
