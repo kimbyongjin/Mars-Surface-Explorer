@@ -1,4 +1,4 @@
-module.exports = 'DEMO_KEY';
+// module.exports = 'DEMO_KEY';
 
 /*
 IMPORTANT: To run this application, you MUST enable API authentication.

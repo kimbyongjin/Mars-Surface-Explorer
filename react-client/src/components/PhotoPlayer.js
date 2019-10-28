@@ -1,8 +1,11 @@
 import React from 'react';
 import MarsPhoto from './MarsPhoto';
-import apiKey from '../authentication';
+// import apiKey from '../authentication';
 
 const axios = require('axios');
+
+// get an environment variable
+const token = process.env.NASA_KEY;
 
 class PhotoPlayer extends React.Component {
   constructor(props) {
@@ -40,7 +43,7 @@ class PhotoPlayer extends React.Component {
 
   getNavCam() {
     const { rover, camera, sol } = this.props.photoSet;
-    axios.get(`https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}&camera=${camera}&api_key=${apiKey}`)
+    axios.get(`https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}&camera=${camera}&api_key=${token}`)
       .then((response) => {
         const { photos } = response.data;
         this.setState({

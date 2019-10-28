@@ -1,10 +1,13 @@
 import React from 'react';
-import apiKey from '../authentication';
-import PhotoOfTheDay from './PhotoOfTheDay'
+// import apiKey from '../authentication';
+import PhotoOfTheDay from './PhotoOfTheDay';
 import PhotoPlayer from './PhotoPlayer';
 import RoverSelectionForm from './RoverSelectionForm';
 
 const axios = require('axios');
+
+// get an environment variable
+const token = process.env.NASA_KEY;
 
 class App extends React.Component {
   constructor() {
@@ -18,59 +21,59 @@ class App extends React.Component {
         camera: 'navcam', // default navcam - navcam
         sol: '555', // default 1000 - 1002
       },
-    }
+    };
     this.getPOTD = this.getPOTD.bind(this);
     this.toggleMarsPhotos = this.toggleMarsPhotos.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(e, option) {
-    let { rover, camera, sol } = this.state.photoSet;
+    const { rover, camera, sol } = this.state.photoSet;
     const { value } = e.target;
     if (option === 'rover') {
       this.setState({
         photoSet: {
           rover: value,
-          camera: camera,
-          sol: sol,
-        }
-      })
+          camera,
+          sol,
+        },
+      });
     }
     if (option === 'camera') {
       this.setState({
         photoSet: {
-          rover: rover,
+          rover,
           camera: value,
-          sol: sol,
-        }
-      })
+          sol,
+        },
+      });
     }
     if (option === 'sol') {
       this.setState({
         photoSet: {
-          rover:rover,
-          camera: camera,
+          rover,
+          camera,
           sol: value,
-        }
-      })
+        },
+      });
     }
   }
 
   getPOTD() {
-    axios.get(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`)
+    axios.get(`https://api.nasa.gov/planetary/apod?api_key=${token}`)
       .then((response) => {
         const { data } = response;
         this.setState({
           potd: data,
-        })
+        });
       })
       .catch((err) => {
         console.log(err);
-      })
-  };
+      });
+  }
 
   toggleMarsPhotos() {
-    let { marsPhotos } = this.state;
+    const { marsPhotos } = this.state;
     if (!marsPhotos) {
       this.setState({
         marsPhotos: !marsPhotos,
@@ -80,9 +83,9 @@ class App extends React.Component {
 
   componentDidMount() {
     this.getPOTD();
-  };
+  }
 
-  render () {
+  render() {
     const { potd, marsPhotos, photoSet } = this.state;
     if (!marsPhotos) {
       return (
@@ -107,6 +110,6 @@ class App extends React.Component {
       </div>
     );
   }
-};
+}
 
 export default App;
