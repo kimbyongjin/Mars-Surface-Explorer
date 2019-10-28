@@ -1,5 +1,5 @@
 const axios = require('axios');
-const apiKey = require('./authentication');
+const apiKey = process.env.NASA_KEY;
 
 const getPOTD = (cb) => {
   axios.get(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`)

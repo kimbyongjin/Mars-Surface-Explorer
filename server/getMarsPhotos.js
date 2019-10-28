@@ -1,5 +1,5 @@
 const axios = require('axios');
-const apiKey = require('./authentication');
+const apiKey = process.env.NASA_KEY;
 
 const getMarsPhotos = (photoParams, cb) => {
   const { rover, camera, sol } = photoParams;
