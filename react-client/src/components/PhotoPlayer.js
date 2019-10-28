@@ -39,8 +39,10 @@ class PhotoPlayer extends React.Component {
   }
 
   getMarsPhotos() {
-    const { rover, camera, sol } = this.props.photoSet;
-    axios.get(`https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}&camera=${camera}&api_key=${apiKey}`)
+    const { photoSet } = this.props;
+    axios.get('/exploreMars', {
+      params: photoSet,
+    })
       .then((response) => {
         const { photos } = response.data;
         this.setState({
