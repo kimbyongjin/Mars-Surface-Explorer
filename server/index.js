@@ -2,9 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
-const items = require('../database-mongo');
 const getPOTD = require('./getPOTD');
 const getMarsPhotos = require('./getMarsPhotos');
+// const items = require('../database-mongo');
 
 const app = express();
 
