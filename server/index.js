@@ -36,5 +36,8 @@ app.get('/exploreMars', (req, res) => {
   });
 });
 
+if (token) {
+  console.log('env auth token present');
+}
 
-app.listen(3003, () => console.log(token));
+app.listen(3003, () => console.log('Express server listening on port 3003!'));
