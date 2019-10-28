@@ -8,6 +8,9 @@ const getMarsPhotos = require('./getMarsPhotos');
 
 const app = express();
 
+// get an environment variable
+const token = process.env.NASA_KEY;
+
 app.use(express.static(path.join(__dirname, '/../public')));
 app.use(bodyParser.json());
 app.use(cors());
@@ -33,4 +36,5 @@ app.get('/exploreMars', (req, res) => {
   });
 });
 
-app.listen(3000, () => console.log('Express server listening on port 3000!'));
+
+app.listen(3003, () => console.log(token));

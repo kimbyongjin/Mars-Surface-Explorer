@@ -5,6 +5,9 @@ import RoverSelectionForm from './RoverSelectionForm';
 
 const axios = require('axios');
 
+// get an environment variable
+const token = process.env.NASA_KEY;
+
 class App extends React.Component {
   constructor() {
     super();
@@ -19,7 +22,7 @@ class App extends React.Component {
       marsPhotos: [],
       activePhoto: {},
       activePhotoIdx: 0,
-    }
+    };
     this.getPOTD = this.getPOTD.bind(this);
     this.getMarsPhotos = this.getMarsPhotos.bind(this);
     this.cyclePhotos = this.cyclePhotos.bind(this);
@@ -82,42 +85,42 @@ class App extends React.Component {
   }
 
   handleChange(e, option) {
-    let { rover, camera, sol, } = this.state.photoSet;
+    const { rover, camera, sol, } = this.state.photoSet;
     const { value } = e.target;
     if (option === 'rover') {
       this.setState({
         photoSet: {
           rover: value,
-          camera: camera,
-          sol: sol,
-        }
-      })
+          camera,
+          sol,
+        },
+      });
     }
     if (option === 'camera') {
       this.setState({
         photoSet: {
-          rover: rover,
+          rover,
           camera: value,
-          sol: sol,
-        }
-      })
+          sol,
+        },
+      });
     }
     if (option === 'sol') {
       this.setState({
         photoSet: {
-          rover:rover,
-          camera: camera,
+          rover,
+          camera,
           sol: value,
-        }
-      })
+        },
+      });
     }
   }
 
   componentDidMount() {
     this.getPOTD();
-  };
+  }
 
-  render () {
+  render() {
     const { potd, marsPhotos, activePhoto, } = this.state;
     if (!marsPhotos.length) {
       return (
@@ -142,6 +145,6 @@ class App extends React.Component {
       </div>
     );
   }
-};
+}
 
 export default App;

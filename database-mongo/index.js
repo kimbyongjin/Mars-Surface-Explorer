@@ -16,9 +16,9 @@
 //   quantity: Number,
 //   description: String,
 // });
-
+//
 // const Item = mongoose.model('Item', itemSchema);
-
+//
 // const selectAll = (callback) => {
 //   Item.find({}, (err, items) => {
 //     if (err) {
@@ -28,7 +28,7 @@
 //     }
 //   });
 // };
-
+//
 // // TODO: build out feature allowing users to save noteworthy photo queries
-
+//
 // module.exports.selectAll = selectAll;
