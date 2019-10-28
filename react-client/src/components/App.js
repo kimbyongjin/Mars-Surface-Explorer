@@ -1,5 +1,4 @@
 import React from 'react';
-import apiKey from '../authentication';
 import PhotoOfTheDay from './PhotoOfTheDay'
 import PhotoPlayer from './PhotoPlayer';
 import RoverSelectionForm from './RoverSelectionForm';
@@ -57,7 +56,7 @@ class App extends React.Component {
   }
 
   getPOTD() {
-    axios.get(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`)
+    axios.get('/nasaPOTD')
       .then((response) => {
         const { data } = response;
         this.setState({
@@ -65,8 +64,8 @@ class App extends React.Component {
         })
       })
       .catch((err) => {
-        console.log(err);
-      })
+        console.error(err);
+      });
   };
 
   toggleMarsPhotos() {

@@ -1,6 +1,6 @@
 import React from 'react';
 import MarsPhoto from './MarsPhoto';
-import apiKey from '../authentication';
+// import apiKey from '../authentication';
 
 const axios = require('axios');
 
@@ -13,7 +13,7 @@ class PhotoPlayer extends React.Component {
       photo: {},
       activePhotoIdx: 0,
     }
-    this.getNavCam = this.getNavCam.bind(this);
+    this.getMarsPhotos = this.getMarsPhotos.bind(this);
     this.cyclePhotos = this.cyclePhotos.bind(this);
   }
 
@@ -38,7 +38,7 @@ class PhotoPlayer extends React.Component {
     )
   }
 
-  getNavCam() {
+  getMarsPhotos() {
     const { rover, camera, sol } = this.props.photoSet;
     axios.get(`https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}&camera=${camera}&api_key=${apiKey}`)
       .then((response) => {
@@ -58,7 +58,7 @@ class PhotoPlayer extends React.Component {
   }
 
   componentDidMount() {
-    this.getNavCam();
+    this.getMarsPhotos();
   }
 
   render() {

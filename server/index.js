@@ -1,8 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const path = require('path');
 const cors = require('cors');
+const path = require('path');
 const items = require('../database-mongo');
+const getPOTD = require('./getPOTD');
 
 const app = express();
 
@@ -16,6 +17,16 @@ app.get('/items', (req, res) => {
       res.sendStatus(500);
     } else {
       res.json(data);
+    }
+  });
+});
+
+app.get('/nasaPOTD', (req, res) => {
+  getPOTD((err, data) => {
+    if (err) {
+      res.status(400).send(err);
+    } else {
+      res.status(200).send(data);
     }
   });
 });
