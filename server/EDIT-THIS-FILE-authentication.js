@@ -5,7 +5,7 @@ IMPORTANT: To run this application, you MUST enable API authentication.
 To do so, closely follow these ordered instructions:
 
 The file to safely store you authentication credentials is located at
-  ```react-client/src/EDIT-THIS-FILE-authentication.js```. In order to access the
+  ```server/src/EDIT-THIS-FILE-authentication.js```. In order to access the
   [Mars Rover Photos API](https://data.nasa.gov/Space-Science/Mars-Rover-Photos-API/929k-jizu)
   you will have to modify this authentication file.
 

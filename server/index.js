@@ -1,8 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const path = require('path');
 const cors = require('cors');
+const path = require('path');
 const items = require('../database-mongo');
+const getPOTD = require('./getPOTD');
+const getMarsPhotos = require('./getMarsPhotos');
 
 const app = express();
 
@@ -16,6 +18,28 @@ app.get('/items', (req, res) => {
       res.sendStatus(500);
     } else {
       res.json(data);
+    }
+  });
+});
+
+app.get('/nasaPOTD', (req, res) => {
+  getPOTD((err, data) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.status(200).send(data);
+    }
+  });
+});
+
+app.get('/exploreMars', (req, res) => {
+  const { query } = req;
+  getMarsPhotos(query, (err, photos) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      console.table(photos);
+      res.status(200).send(photos);
     }
   });
 });

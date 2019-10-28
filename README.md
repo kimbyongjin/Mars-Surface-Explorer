@@ -10,7 +10,7 @@ Mars Surface Explorer provides a portal through which a user can access the phot
 
 IMPORTANT: To run this application, you MUST enable API authentication. To do so, closely follow these ordered instructions, which are again enumerated in the appropriate authentication file.
 
-The file to safely store you authentication credentials is located at ```react-client/src/EDIT-THIS-FILE-authentication.js```. In order to access the [Mars Rover Photos API](https://data.nasa.gov/Space-Science/Mars-Rover-Photos-API/929k-jizu) you will have to modify this authentication file.
+The file to safely store you authentication credentials is located at ```server/src/EDIT-THIS-FILE-authentication.js```. In order to access the [Mars Rover Photos API](https://data.nasa.gov/Space-Science/Mars-Rover-Photos-API/929k-jizu) you will have to modify this authentication file.
 
 To begin, rename the file ```EDIT-THIS-FILE-authentication.js``` to simply ```authentication.js```. This step satisfies two important factors in the secure operations of this application.
 
